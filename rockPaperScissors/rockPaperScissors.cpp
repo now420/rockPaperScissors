@@ -1,8 +1,10 @@
 #include "random.h"
 #include <iostream>
+#include <Windows.h>
 
 auto main() -> int {
     while (true) {
+        start:
         std::string iChoice;
 
         std::cout << R"(
@@ -26,7 +28,9 @@ Input here: )";
         }
         else {
             std::cout << "Invalid choice, going back to start..." << std::endl;
-            break;
+            Sleep(246);
+            system("cls");
+            goto start;
         }
 
         sRockPaperScissors computer = random->getRandomChoice();
